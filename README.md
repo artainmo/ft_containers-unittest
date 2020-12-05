@@ -3,33 +3,33 @@ Unit-test for 42 school project ft_containers written in c++ for following conta
 
 
 
-#PREPARE
+PREPARE
 Prepare -> Change path to your containers hpp's in main.hpp
 Optional prepare -> Choose ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
 Optional prepare -> Set G_STOP_AT_TEST to keep testing a particular case independently of errors
 
-#USE NON-CONST UNITTEST
+USE NON-CONST UNITTEST
 Launch non-const unittest -> make list/stack/...
 Results -> output/real and output/my
 Tests -> src/..._tests.hpp
 
-#USE CONST UNITTEST
+USE CONST UNITTEST
 Launch const unittest -> make const
 You should have a certain amount of compilation errors not more or less
 
-#NOT TESTED
+NOT TESTED
 To test vector container correctly set its buffer_size to 10
 Allocator_type
 Undefined behavior; unintialized memory, SIGABORT, SEGFAULT, ...
 Max size as you can have different answer than real one. You must be able to explain, your own implementation of it.
 Destructor is not tested and memeory leaks are not tested
 
-#OTHER
+OTHER
 Infinite loop results can be checked in output/tmp_my and output/tmp_real
 
 
 
-#ABOUT UNITTEST
+ABOUT UNITTEST
 When excess test errors are written to file, fills up computer memory and creates bug.
 Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.
 Combination of tests are generated based on different container objects.
