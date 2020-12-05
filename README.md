@@ -7,7 +7,7 @@ Unit-test for 42 school project ft_containers written in c++ for following conta
 
 * Change path to your containers hpp's in main.hpp
 
-* Optional: Choose ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
+* Optional: Set ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
 
 * Optional: Set G_STOP_AT_TEST to keep testing a particular case independently of errors
 
