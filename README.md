@@ -4,11 +4,12 @@ Unit-test for 42 school project ft_containers written in c++ for following conta
 
 
 ### PREPARE
-Change path to your containers hpp's in main.hpp
 
-Optional prepare -> Choose ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
+* Change path to your containers hpp's in main.hpp
 
-Optional prepare -> Set G_STOP_AT_TEST to keep testing a particular case independently of errors
+* Optional: Choose ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
+
+* Optional: Set G_STOP_AT_TEST to keep testing a particular case independently of errors
 
 ### USE NON-CONST UNITTEST
 Launch non-const unittest
