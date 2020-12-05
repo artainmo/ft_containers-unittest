@@ -34,7 +34,8 @@ Infinite loop results can be checked in output/tmp_my and output/tmp_real
 
 
 
-ABOUT UNITTEST
+
+NOTES
 When excess test errors are written to file, fills up computer memory and creates bug.
 Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.
 Combination of tests are generated based on different container objects.
