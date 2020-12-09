@@ -240,12 +240,13 @@ void lcopy_constructor()
 template<typename T, typename T2>
 void lassignation_operator(T &l, T &l2)
 {
+  T l3;
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Assignation operator " << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested containers: " << std::endl;
   laccess<T>(l);
   laccess<T>(l2);
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
-  l = l2;
+  l3 = l = l2; //Test if proper return and not just pointer used
   laccess<T>(l);
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Deep copy test: " << std::endl;
   T2 k = 0;
@@ -1056,6 +1057,63 @@ void lbigger_than_equal(T &l, T &l2)
 }
 
 template<typename T>
+void literator_tests3()
+{
+  std::cout << std::setfill ('#') << std::setw (100) << std::left << "Iterator tests 3" << std::endl;
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Compared containers: " << std::endl;
+  T l;
+  l.push_back(1);
+  l.push_back(2);
+  l.push_back(3);
+  l.push_back(5);
+  laccess<T>(l);
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
+  typename T::iterator i = l.begin();
+  typename T::reverse_iterator r = l.rbegin();
+
+  while(i != l.end())
+    std::cout << *i++;
+  std::cout << std::endl;
+
+  while(r != l.rend())
+    std::cout << *r++;
+  std::cout << std::endl;
+
+  i = l.begin();
+  r = l.rbegin();
+
+  while(i != l.end())
+    std::cout << *++i;
+  std::cout << std::endl;
+
+  while(r != l.rend())
+    std::cout << *++r;
+  std::cout << std::endl;
+
+  i = l.end();
+  r = l.rend();
+
+  while(i != l.begin())
+    std::cout << *--i;
+  std::cout << std::endl;
+
+  while(r != l.rbegin())
+    std::cout << *--r;
+  std::cout << std::endl;
+
+  i = l.end();
+  r = l.rend();
+
+  while(i != l.begin())
+    std::cout << *i--;
+  std::cout << std::endl;
+
+  while(r != l.rbegin())
+    std::cout << *r--;
+  std::cout << std::endl;
+}
+
+template<typename T>
 void literator_tests2()
 {
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Iterator tests 2" << std::endl;
@@ -1128,14 +1186,35 @@ void literator_tests1()
   std::cout << *k << std::endl;
 }
 
+template<typename T>
+void lmember_types()
+{
+  std::cout << std::setfill ('#') << std::setw (100) << std::left << "Member types " << std::endl;
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
+  typename T::value_type q;
+  (void)q;
+  typename T::reference w = q;
+  (void)w;
+  typename T::const_reference e = 0;
+  (void)e;
+  typename T::pointer r;
+  (void)r;
+  typename T::const_pointer t;
+  (void)t;
+  typename T::difference_type y;
+  (void)y;
+  typename T::size_type u;
+  (void)u;
+}
+
 template<typename T, typename T2>
 struct s_functions_ptr<T> *list_basic_func(unsigned int &lenght)
 {
-  struct s_functions_ptr<T> func[7] = {{ldefault_constructor<T>, 1}, {lfill_constructor<T>, 2}, {lspecial_fill_constructor<T>, 3}, \
-  {lrange_constructor<T>, 4}, {lcopy_constructor<T, T2>, 5}, {literator_tests1<T, T2>, 6}, {literator_tests2<T>, 7}};
-  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[7];
+  struct s_functions_ptr<T> func[9] = {{ldefault_constructor<T>, 1}, {lfill_constructor<T>, 2}, {lspecial_fill_constructor<T>, 3}, \
+  {lrange_constructor<T>, 4}, {lcopy_constructor<T, T2>, 5}, {literator_tests1<T, T2>, 6}, {literator_tests2<T>, 7},  {literator_tests3<T>, 8}, {lmember_types<T>, 9}};
+  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[9];
 
-  lenght = 7;
+  lenght = 9;
   for (unsigned int i = 0; i < lenght; i++)
     ret[i] = func[i];
   return ret;

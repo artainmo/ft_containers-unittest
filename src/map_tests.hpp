@@ -629,6 +629,85 @@ void mequal_range(T &l)
     std::cout << "return: " << p2.second->first << "\t" << p2.second->second << std::endl;
 }
 
+template<typename T>
+void miterator_tests2()
+{
+  std::cout << std::setfill ('#') << std::setw (100) << std::left << "Iterator tests 2" << std::endl;
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Compared containers: " << std::endl;
+  T m;
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(1, 4));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(2, 3));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(3, 6));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(4, 2));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(5, 5));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(6, 5));
+  m.insert(std::pair<typename T::key_type, typename T::mapped_type>(7, 1));
+  maccess<T>(m);
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
+  typename T::iterator i = m.begin();
+  typename T::reverse_iterator l = m.rbegin();
+  std::pair<typename T::key_type, typename T::mapped_type> tmp;
+
+  while (i != m.end())
+  {
+    tmp = *i++;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+
+  while (l != m.rend())
+  {
+    tmp = *l++;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+
+  i = m.begin();
+  l = m.rbegin();
+
+  tmp = *++i;
+  std::cout << tmp.first << "\t" << tmp.second << std::endl << std::endl;
+
+  tmp = *++l;
+  std::cout << tmp.first << "\t" << tmp.second << std::endl << std::endl;
+
+  i = m.end();
+  l = m.rend();
+
+  i--;
+  while (i != m.begin())
+  {
+    tmp = *i--;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+
+  l--;
+  while (l != m.rbegin())
+  {
+    tmp = *l--;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+
+  i = m.end();
+  l = m.rend();
+
+  while (i != m.begin())
+  {
+    tmp = *--i;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+
+  while (l != m.rbegin())
+  {
+    tmp = *--l;
+    std::cout << tmp.first << "\t" << tmp.second << std::endl;
+  }
+  std::cout << std::endl;
+}
+
 template<typename T, typename T1, typename T2>
 void miterator_tests1()
 {
@@ -685,11 +764,11 @@ void miterator_tests1()
 template<typename T, typename T1, typename T2>
 struct s_functions_ptr<T> *map_basic_func(unsigned int &lenght)
 {
-  struct s_functions_ptr<T> func[4] = {{mdefault_constructor<T>, 1}, {mrange_constructor<T, T1, T2>, 2}, \
-  {mcopy_constructor<T, T1, T2>, 3}, {miterator_tests1<T, T1, T2>, 4}};
-  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[4];
+  struct s_functions_ptr<T> func[6] = {{mdefault_constructor<T>, 1}, {mrange_constructor<T, T1, T2>, 2}, \
+  {mcopy_constructor<T, T1, T2>, 3}, {miterator_tests1<T, T1, T2>, 4}, {miterator_tests2<T>, 5}};
+  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[6];
 
-  lenght = 4;
+  lenght = 6;
   for (unsigned int i = 0; i < lenght; i++)
     ret[i] = func[i];
   return ret;

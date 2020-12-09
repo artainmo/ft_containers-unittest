@@ -187,7 +187,7 @@ template<typename T>
 void vfill_constructor()
 {
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Fill constructor " << std::endl;
-  T l((unsigned int)10, 5); //Indicate unsigned int is necessary otherwise it will use the templated inputiterator (int, int) function
+  T l((unsigned int)10); //Indicate unsigned int is necessary otherwise it will use the templated inputiterator (int, int) function
   vaccess<T>(l);
 }
 
@@ -800,6 +800,61 @@ void vbigger_than_equal(T &l, T &l2)
 }
 
 template<typename T>
+void viterator_tests3()
+{
+  std::cout << std::setfill ('#') << std::setw (100) << std::left << "Iterator tests 3" << std::endl;
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Compared containers: " << std::endl;
+  T l;
+  l.push_back(1);
+  l.push_back(2);
+  l.push_back(3);
+  l.push_back(5);
+  laccess<T>(l);
+  std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
+  typename T::iterator i = l.begin();
+  typename T::reverse_iterator r = l.rbegin();
+
+  while(i != l.end())
+    std::cout << *i++;
+  std::cout << std::endl;
+
+  while(r != l.rend())
+    std::cout << *r++;
+  std::cout << std::endl;
+
+  i = l.begin();
+  r = l.rbegin();
+
+  std::cout << *++i;
+  std::cout << std::endl;
+
+  std::cout << *++r;
+  std::cout << std::endl;
+
+  i = l.end();
+  r = l.rend();
+
+  while(i != l.begin())
+    std::cout << *--i;
+  std::cout << std::endl;
+
+  while(r != l.rbegin())
+    std::cout << *--r;
+  std::cout << std::endl;
+
+  i = l.end();
+  i--;
+  r = l.rend();
+  r--;
+
+  std::cout << *i--;
+  std::cout << std::endl;
+
+  std::cout << *r--;
+  std::cout << std::endl;
+}
+
+template<typename T>
 void viterator_tests2()
 {
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Iterator tests 2" << std::endl;
@@ -883,11 +938,11 @@ void viterator_tests1()
 template<typename T, typename T2>
 struct s_functions_ptr<T> *vector_basic_func(unsigned int &lenght)
 {
-  struct s_functions_ptr<T> func[7] = {{vdefault_constructor<T>, 1}, {vfill_constructor<T>, 2}, {vspecial_fill_constructor<T>, 3}, \
-  {vrange_constructor<T>, 4}, {vcopy_constructor<T, T2>, 5}, {viterator_tests1<T, T2>, 6}, {viterator_tests2<T>, 7}};
-  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[7];
+  struct s_functions_ptr<T> func[8] = {{vdefault_constructor<T>, 1}, {vfill_constructor<T>, 2}, {vspecial_fill_constructor<T>, 3}, \
+  {vrange_constructor<T>, 4}, {vcopy_constructor<T, T2>, 5}, {viterator_tests1<T, T2>, 6}, {viterator_tests2<T>, 7}, {viterator_tests3<T>, 8}};
+  struct s_functions_ptr<T> *ret = new struct s_functions_ptr<T>[8];
 
-  lenght = 7;
+  lenght = 8;
   for (unsigned int i = 0; i < lenght; i++)
     ret[i] = func[i];
   return ret;

@@ -43,6 +43,8 @@ Max size as you can have different answer than real one. You must be able to exp
 
 Destructor is not tested and memeory leaks are not tested
 
+Special types like std::string
+
 ### OTHER
 Infinite loop results can be checked in output/tmp_my and output/tmp_real
 
