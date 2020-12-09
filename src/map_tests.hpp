@@ -351,7 +351,7 @@ void minsert_range3(T &l, T &l2)
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested containers: " << std::endl;
   maccess<T>(l);
   maccess<T>(l2);
-  if (l2.size() == 0) //Undefined behavior inifinite loop iterator out of range
+  if (l2.size() < 2) //Undefined behavior inifinite loop iterator out of range
     return ;
   typename T::iterator m = l2.end();
   --m;
@@ -394,7 +394,7 @@ void minsert_range(T &l, T &l2)
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested containers: " << std::endl;
   maccess<T>(l);
   maccess<T>(l2);
-  if (l2.size() == 0) //Out of range undefined behavior
+  if (l2.size() < 2) //Out of range undefined behavior
     return ;
   typename T::iterator i = l2.begin();
   ++i;
@@ -413,10 +413,12 @@ void merase_iterator_based2(T &l)
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Erase iterator based 2" << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   maccess<T>(l);
+  if (l.size() == 0) //Linux undefined
+      return ;
   typename T::iterator i = l.begin();
   ++i;
   ++i;
-  if (i == l.end()) //Trying to erase the end() segfaults
+  if (l.size() < 3) //Trying to erase the end() segfaults
     return ;
   std::cout << "Iterator 1: " << i->first << "\t" << i->second << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
@@ -430,6 +432,8 @@ void merase_iterator_based(T &l)
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Erase iterator based" << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   maccess<T>(l);
+  if (l.size() == 0)//Linux undefined
+      return ;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
   l.erase(l.begin());
   maccess<T>(l);
@@ -457,6 +461,8 @@ void merase_range2(T &l)
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Erase range 2" << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   maccess<T>(l);
+  if (l.size() < 2) //linux segfault
+     return ;
   typename T::iterator m = l.begin();
   ++m;
   ++m;
@@ -468,7 +474,10 @@ void merase_range2(T &l)
   if (k != l.end())
     std::cout << "Iterator 2: " << k->first << "\t" << k->second << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
-  l.erase(m, k);
+  if (l.size() > 3)
+     l.erase(m, k);
+  else
+     l.erase(k, m);
   maccess<T>(l);
 }
 
@@ -524,6 +533,8 @@ void mvalue_compare(T &l)
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Value compare function " << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   maccess<T>(l);
+  if (l.size() < 2) //Linux segfault
+      return ;
   typename T::iterator m = l.begin();
   ++m;
   ++m;
