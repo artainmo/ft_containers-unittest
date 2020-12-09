@@ -145,12 +145,12 @@ void spop(T &l)
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   saccess<T>(l);
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
-  // if (l.size() != 0) //Undefined bahavior segfault
-  l.pop();
-  // if (l.size() != 0) //Undefined bahavior segfault
-  l.pop();
-  // if (l.size() != 0) //Undefined bahavior random value
-  saccess<T>(l);
+  if (l.size() != 0) //Undefined bahavior segfault
+  	l.pop();
+  if (l.size() != 0) //Undefined bahavior segfault
+  	l.pop();
+  if (l.size() != 0) //Undefined bahavior random value
+  	saccess<T>(l);
 }
 
 template<typename T>

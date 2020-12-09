@@ -59,10 +59,10 @@ T *queue_container_object_creation1(unsigned int &lenght)
 }
 
 template<typename T>
-void qget_back(T &ob) { std::cout << "~~ Back: "; std::cout << ob.back() << std::endl; }
+void qget_back(T &ob) { if (ob.size() == 0) return ; std::cout << "~~ Back: "; std::cout << ob.back() << std::endl; }
 
 template<typename T>
-void qget_front(T &ob) { std::cout << "~~ Front: "; std::cout << ob.front() << std::endl; }
+void qget_front(T &ob) { if (ob.size() == 0) return ; std::cout << "~~ Front: "; std::cout << ob.front() << std::endl; }
 
 template<typename T>
 void qget_size(T &ob) { std::cout << "~~ Size: "; std::cout << ob.size() << std::endl; }
@@ -123,6 +123,8 @@ void qfront(T &l)
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Front function " << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
   qaccess<T>(l);
+  if (l.size() == 0) //Linux undefined
+	return ;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
   l.front() = l.back(); //If this line causes compilation error review your code const problem
   qaccess<T>(l);
@@ -133,6 +135,8 @@ void qback(T &l)
 {
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Back function " << std::endl;
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Tested container: " << std::endl;
+  if (l.size() == 0)//Linux undeined
+	  return ;
   qaccess<T>(l);
   std::cout << std::setfill ('>') << std::setw (50) << std::left << "Result: " << std::endl;
   l.back() = l.front(); //If this line causes compilation error review your code const problem
