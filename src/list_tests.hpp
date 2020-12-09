@@ -117,7 +117,7 @@ void show_list_begin(T &l)
   for (unsigned int i = 0; i < l.size(); i++)
   {
     std::cout << *it;
-    ++it;
+    it++;
   }
   std::cout << std::endl;
 }

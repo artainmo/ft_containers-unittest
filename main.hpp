@@ -2,11 +2,11 @@
 #define _MAIN_HPP
 
 //Paths to your containers
-#include "../List/list.hpp"
-#include "../Vector/vector.hpp"
-#include "../Map/map.hpp"
-#include "../Stack/stack.hpp"
-#include "../Queue/queue.hpp"
+#include "../ft_containers/List/list.hpp"
+#include "../ft_containers/Vector/vector.hpp"
+#include "../ft_containers/Map/map.hpp"
+#include "../ft_containers/Stack/stack.hpp"
+#include "../ft_containers/Queue/queue.hpp"
 
 //Real containers
 #include <list>
@@ -27,7 +27,8 @@
 #include <fcntl.h>
 #include <pthread.h>
 #include <sstream>
-
+#include <iomanip>
+#include <cstring>
 
 #define LIST_TOTAL_TESTS 162535.000000
 #define MAP_TOTAL_TESTS 156897.000000

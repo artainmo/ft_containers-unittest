@@ -99,5 +99,5 @@ void cont()
   feedback();
   std::cout << "\033[30m" <<"\nPRESS ENTER to continue";
   std::getline(std::cin, input);
-  std::cout << "\n" << std::cout;
+  std::cout << "\n";
 }
