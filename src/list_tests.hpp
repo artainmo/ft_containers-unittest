@@ -197,7 +197,7 @@ template<typename T>
 void lfill_constructor()
 {
   std::cout << std::setfill ('#') << std::setw (100) << std::left << "Fill constructor " << std::endl;
-  T l((unsigned int)10, 5);
+  T l((unsigned int)10);
   laccess<T>(l);
 }
 
