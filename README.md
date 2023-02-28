@@ -1,6 +1,10 @@
 # ft_containers-unittest
 An advanced unit-test written in c++ for 42 school's [ft_containers](https://github.com/artainmo/ft_containers) project or other c++ containers.
 
+Fir the 'list' container we generate 162555 tests for example.
+
+As explained below we use threads and forks to speed up the testing.
+
 ### PREPARE
 
 * Change path to your container's '.hpp' in 'main.hpp'
@@ -14,7 +18,8 @@ Launch non-const unittest
 ```
 make <list/stack/map/queue/vector>
 ```
-See Results in '/output'
+See Results in '/output'.<br>
+Infinite loop results can be checked in 'output/tmp_my' and 'output/tmp_real'.
 
 See Tests in '/src'.
 
@@ -33,19 +38,19 @@ Max size as you can have different answer than real one. You must be able to exp
 Destructor is not tested and memeory leaks are not tested.<br>
 Special types like std::string.
 
-### OTHER
-Infinite loop results can be checked in output/tmp_my and output/tmp_real
-
 ### NOTES
-When excess test errors are written to file, fills up computer memory and creates bug.<br>
-Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.<br>
-Combination of tests are generated based on different container objects.<br>
+Because this unittest is very advanced I doubt it will be used by others, as validating it is probably way more complex than what is demanded in 42 school project ft_containers.
+
 Using processes to test segfaults and sigabort, so that the error gets catched and exits the child process.<br>
 For error messages that cannot be catched like memory freed not allocated, we redirect the stderr to /dev/null.<br>
 Infinte loops cannot be catched unfortunately, but result can be viewed in output/tmp_my and output/tmp_real.<br>
 Temp files are used, if program blocks and ctrl-c is used to quit program, tmp files won't be deleted and can be viewed to debug, useful for infinite loops.<br>
+
 Threads used with the failed idea of increasing the programs speed, failed due to impossibility to write to multiple fds at the same time.<br>
 But in the end threads increased program speed a lot by increasing the speed of fork.<br>
 Fork gets slower as parent process uses more memory both stack and heap memory, due to its copying feature, using threads detaches from parent process and speeds up the forks, threads increased program speed 5X.
 
-Because this unittest is very advanced I doubt it will be used by others, as validating it is probably way more complex than what is demanded in 42 school project ft_containers.
+When excess test errors are written to file, fills up computer memory and creates bug.<br>
+Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.<br>
+
+Combination of tests are generated based on different container objects.<br>
