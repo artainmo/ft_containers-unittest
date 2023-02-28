@@ -1,7 +1,5 @@
 # ft_containers-unittest
-Unit-test for 42 school project ft_containers written in c++ for following containers, list, map, queue, stack, vector
-
-
+Unit-test for 42 school project ft_containers written in c++ for following containers, list, map, queue, stack, vector.
 
 ### PREPARE
 
@@ -33,32 +31,24 @@ make const
 You should have a certain amount of compilation errors not more or less
 
 ### NOT TESTED
-To test vector container correctly set its buffer_size to 10
-
-Allocator_type
-
-Undefined behavior; unintialized memory, SIGABORT, SEGFAULT, ...
-
-Max size as you can have different answer than real one. You must be able to explain, your own implementation of it.
-
-Destructor is not tested and memeory leaks are not tested
-
-Special types like std::string
+To test vector container correctly set its buffer_size to 10.<br>
+Allocator_type.<br>
+Undefined behavior; unintialized memory, SIGABORT, SEGFAULT, ...<br>
+Max size as you can have different answer than real one. You must be able to explain, your own implementation of it.<br>
+Destructor is not tested and memeory leaks are not tested.<br>
+Special types like std::string.
 
 ### OTHER
 Infinite loop results can be checked in output/tmp_my and output/tmp_real
 
-
-
-
 ### NOTES
-When excess test errors are written to file, fills up computer memory and creates bug.
-Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.
-Combination of tests are generated based on different container objects.
-Using processes to test segfaults and sigabort, so that the error gets catched and exits the child process
-For error messages that cannot be catched like memory freed not allocated, we redirect the stderr to /dev/null
-Infinte loops cannot be catched unfortunately, but result can be viewed in output/tmp_my and output/tmp_real.
-Temp files are used, if program blocks and ctrl-c is used to quit program, tmp files won't be deleted and can be viewed to debug, useful for infinite loops.
-Threads used with the failed idea of increasing the programs speed, failed due to impossibility to write to multiple fds at the same time.
-But in the end threads increased program speed a lot by increasing the speed of fork.
+When excess test errors are written to file, fills up computer memory and creates bug.<br>
+Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.<br>
+Combination of tests are generated based on different container objects.<br>
+Using processes to test segfaults and sigabort, so that the error gets catched and exits the child process.<br>
+For error messages that cannot be catched like memory freed not allocated, we redirect the stderr to /dev/null.<br>
+Infinte loops cannot be catched unfortunately, but result can be viewed in output/tmp_my and output/tmp_real.<br>
+Temp files are used, if program blocks and ctrl-c is used to quit program, tmp files won't be deleted and can be viewed to debug, useful for infinite loops.<br>
+Threads used with the failed idea of increasing the programs speed, failed due to impossibility to write to multiple fds at the same time.<br>
+But in the end threads increased program speed a lot by increasing the speed of fork.<br>
 Fork gets slower as parent process uses more memory both stack and heap memory, due to its copying feature, using threads detaches from parent process and speeds up the forks, threads increased program speed 5X.
