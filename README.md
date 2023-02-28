@@ -18,7 +18,7 @@ Launch non-const unittest
 ```
 make <list/stack/map/queue/vector>
 ```
-See Results in '/output'.<br>
+See Results by comparing '/output/me' with '/output/real'.<br>
 Infinite loop results can be checked in 'output/tmp_my' and 'output/tmp_real'.
 
 See Tests in '/src'.
@@ -29,14 +29,6 @@ Launch const unittest
 make const
 ```
 You should have a certain amount of compilation errors not more or less.
-
-### NOT TESTED
-To test vector container correctly set its buffer_size to 10.<br>
-Allocator_type.<br>
-Undefined behavior; unintialized memory, SIGABORT, SEGFAULT, ...<br>
-Max size as you can have different answer than real one. You must be able to explain, your own implementation of it.<br>
-Destructor is not tested and memeory leaks are not tested.<br>
-Special types like std::string.
 
 ### NOTES
 Because this unittest is very advanced I doubt it will be used by others, as validating it is probably way more complex than what is demanded in 42 school project ft_containers.
@@ -54,3 +46,12 @@ When excess test errors are written to file, fills up computer memory and create
 Solution is to not check in the end but after each test and only write errors to files, max number errors before quiting.<br>
 
 Combination of tests are generated based on different container objects.<br>
+
+
+### NOT TESTED
+To test vector container correctly set its buffer_size to 10.<br>
+Allocator_type.<br>
+Undefined behavior; unintialized memory, SIGABORT, SEGFAULT, ...<br>
+Max size as you can have different answer than real one. You must be able to explain, your own implementation of it.<br>
+Destructor is not tested and memeory leaks are not tested.<br>
+Special types like std::string.
