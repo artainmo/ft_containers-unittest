@@ -47,3 +47,5 @@ Temp files are used, if program blocks and ctrl-c is used to quit program, tmp f
 Threads used with the failed idea of increasing the programs speed, failed due to impossibility to write to multiple fds at the same time.<br>
 But in the end threads increased program speed a lot by increasing the speed of fork.<br>
 Fork gets slower as parent process uses more memory both stack and heap memory, due to its copying feature, using threads detaches from parent process and speeds up the forks, threads increased program speed 5X.
+
+Because this unittest is very advanced I doubt it will be used by others, as validating it is probably way more complex than demanded in 42 school project ft_containers.
