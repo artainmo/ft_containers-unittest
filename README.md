@@ -5,9 +5,9 @@ An advanced unit-test written in c++ for 42 school's [ft_containers](https://git
 
 * Change path to your container's '.hpp' in 'main.hpp'
 
-* Optional: Set ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
+* Optional: Set ERROR LIMIT by changing G_ERROR_LIMIT in 'main.cpp'
 
-* Optional: Set G_STOP_AT_TEST to keep testing a particular case independently of errors
+* Optional: Set G_STOP_AT_TEST in 'main.cpp' to keep testing a particular case independently of errors
 
 ### USE NON-CONST UNITTEST
 Launch non-const unittest
