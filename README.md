@@ -1,5 +1,5 @@
 # ft_containers-unittest
-Unit-test for 42 school project ft_containers written in c++ for following containers, list, map, queue, stack, vector.
+Unit-test for 42 school project ft_containers written in c++ for following containers; list, map, queue, stack, vector.
 
 ### PREPARE
 
