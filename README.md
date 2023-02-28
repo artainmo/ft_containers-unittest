@@ -7,7 +7,7 @@ As explained below we use threads and forks to speed up the testing.
 
 ### PREPARE
 
-* Change path to your container's '.hpp' in 'main.hpp'
+* Change **path** to your container's '.hpp' in '**main.hpp**'
 
 * **Optional**: Set G_ERROR_LIMIT in 'main.cpp' to keep testing until the error limit is attained
 
