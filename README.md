@@ -9,19 +9,19 @@ As explained below we use threads and forks to speed up the testing.
 
 * Change path to your container's '.hpp' in 'main.hpp'
 
-* Optional: Set G_ERROR_LIMIT in 'main.cpp' to keep testing until the error limit is attained
+* **Optional**: Set G_ERROR_LIMIT in 'main.cpp' to keep testing until the error limit is attained
 
-* Optional: Set G_STOP_AT_TEST in 'main.cpp' to keep testing independently of errors
+* **Optional**: Set G_STOP_AT_TEST in 'main.cpp' to keep testing independently of errors
 
 ### USE NON-CONST UNITTEST
 Launch non-const unittest
 ```
 make <list/stack/map/queue/vector>
 ```
-See Results by comparing '/output/me' with '/output/real'.<br>
+See **results** by comparing '/output/me' with '/output/real'.<br>
 Infinite loop results can be checked in 'output/tmp_my' and 'output/tmp_real'.
 
-See Tests in '/src'.
+See **tests** in '/src'.
 
 ### USE CONST UNITTEST
 Launch const unittest
