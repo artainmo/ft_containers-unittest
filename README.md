@@ -3,7 +3,7 @@ An advanced unit-test written in c++ for 42 school's [ft_containers](https://git
 
 ### PREPARE
 
-* Change path to your containers hpp's in main.hpp
+* Change path to your container's '.hpp' in 'main.hpp'
 
 * Optional: Set ERROR LIMIT by changing G_ERROR_LIMIT in main.cpp
 
