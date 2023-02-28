@@ -12,23 +12,18 @@ Unit-test for 42 school project ft_containers written in c++ for following conta
 ### USE NON-CONST UNITTEST
 Launch non-const unittest
 ```
-make list/stack/...
+make <list/stack/map/queue/vector>
 ```
-See Results
-```
-output/real and output/my
-```
-See Tests
-```
-src/..._tests.hpp
-```
+See Results in '/output'
+
+See Tests in '/src'.
 
 ### USE CONST UNITTEST
 Launch const unittest
 ```
 make const
 ```
-You should have a certain amount of compilation errors not more or less
+You should have a certain amount of compilation errors not more or less.
 
 ### NOT TESTED
 To test vector container correctly set its buffer_size to 10.<br>
