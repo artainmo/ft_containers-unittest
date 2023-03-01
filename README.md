@@ -3,7 +3,7 @@ An advanced unit-test written in c++ for 42 school's [ft_containers](https://git
 
 Fir the 'list' container we generate 162555 tests for example.
 
-As explained below we use threads and forks to speed up the testing.
+As explained below we use threads and forks to speed up the testing
 
 ### PREPARE
 
